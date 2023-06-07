@@ -11,11 +11,17 @@ data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) 
     val inscritos = mutableListOf<Usuario>()
     
     fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
+        inscritos.add(usuario)
+        println("Usuario $usuario matriculado na formacao $nome.")
     }
 }
 
 fun main() {
-    TODO("Analise as classes modeladas para este domínio de aplicação e pense em formas de evoluí-las.")
-    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando as classes em questão.")
+    val usuario = Usuario()
+    val conteudo1 = ConteudoEducacional("Introducao ao Kotlin")
+    val conteudo2 = ConteudoEducacional("Programacao Orientada a Objetos", 120)
+
+    val formacao = Formacao("Formacao Kotlin", listOf(conteudo1,conteudo2))
+
+    formacao.matricular(usuario)
 }
